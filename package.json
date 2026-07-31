@@ -1,0 +1,21 @@
+{
+  "name": "omp-voxtype-status",
+  "version": "0.1.0",
+  "description": "Global VoxType recording status for Oh My Pi",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "oh-my-pi",
+    "omp",
+    "voxtype",
+    "dictation",
+    "speech-to-text"
+  ],
+  "omp": {
+    "name": "VoxType Status",
+    "description": "Shows VoxType's ready, recording, and transcribing state in OMP.",
+    "extensions": [
+      "./src/voxtype-status.ts"
+    ]
+  }
+}
