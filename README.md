@@ -15,6 +15,7 @@ The indicator is rendered as OMP hook status directly above OMP's colored status
 - Linux with OMP 17.2.1 or newer.
 - VoxType installed and its user daemon running.
 - A working VoxType configuration for the same desktop user that runs OMP.
+- Bun is required only for OMP's `plugin install` command; use the direct extension install below when Bun is not installed.
 
 Check VoxType before installing the plugin:
 
@@ -27,10 +28,22 @@ voxtype status
 
 ## Install
 
-Install the plugin globally from GitHub:
+### OMP plugin manager
+
+If `bun --version` works, install the plugin globally from GitHub:
 
 ```bash
 omp plugin install github:pi3123/omp-voxtype-status
+```
+
+### Direct global extension install
+
+OMP's plugin manager requires Bun. This equivalent installation method works with OMP's standalone binary and does not require Bun:
+
+```bash
+mkdir -p ~/.omp/agent/extensions
+curl -fsSL https://raw.githubusercontent.com/pi3123/omp-voxtype-status/main/src/voxtype-status.ts \
+  -o ~/.omp/agent/extensions/voxtype-status.ts
 ```
 
 Restart OMP after installation. In Herder, close and reopen the OMP process (or resume its session); in a regular terminal, exit OMP and run `omp` again.
@@ -56,7 +69,7 @@ The plugin only reads VoxType's runtime state file. It does not record audio, st
 
 Paste this into OMP:
 
-> Install the global `omp-voxtype-status` plugin from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`; then run `omp plugin install github:pi3123/omp-voxtype-status`. Restart OMP and verify that `ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
+> Install the global `omp-voxtype-status` integration from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`. If Bun is installed, run `omp plugin install github:pi3123/omp-voxtype-status`; otherwise, download `src/voxtype-status.ts` from the repository into `~/.omp/agent/extensions/voxtype-status.ts`. Restart OMP and verify that `ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
 
 ## Verify and troubleshoot
 
@@ -76,13 +89,20 @@ If the indicator says `unavailable`:
 
 ## Update
 
-Re-run the install command to fetch the latest version from this repository:
+Choose the same installation method you used initially, then restart OMP.
+
+### Plugin manager
 
 ```bash
 omp plugin install github:pi3123/omp-voxtype-status
 ```
 
-Restart OMP after updating.
+### Direct extension install
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/pi3123/omp-voxtype-status/main/src/voxtype-status.ts \
+  -o ~/.omp/agent/extensions/voxtype-status.ts
+```
 
 ## Uninstall
 
