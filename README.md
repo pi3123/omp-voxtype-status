@@ -3,9 +3,9 @@
 A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows [VoxType](https://voxtype.io)'s current dictation state in OMP:
 
 ```text
-🎙 VoxType ready
-🎤 Recording
-⏳ Transcribing
+ready
+recording
+transcribing
 ```
 
 The indicator is rendered as OMP hook status directly above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
@@ -35,7 +35,7 @@ omp plugin install github:pi3123/omp-voxtype-status
 
 Restart OMP after installation. In Herder, close and reopen the OMP process (or resume its session); in a regular terminal, exit OMP and run `omp` again.
 
-On the next OMP launch, the indicator should show `🎙 VoxType ready` above the OMP status bar.
+On the next OMP launch, the indicator should show `ready` above the OMP status bar.
 
 ## Use
 
@@ -47,7 +47,7 @@ Use VoxType normally. For example, while an OMP session is open:
 4. Watch the OMP indicator transition:
 
    ```text
-   🎤 Recording → ⏳ Transcribing → 🎙 VoxType ready
+   recording → transcribing → ready
    ```
 
 The plugin only reads VoxType's runtime state file. It does not record audio, start or stop VoxType, access transcription text, or change your hotkey configuration.
@@ -56,7 +56,7 @@ The plugin only reads VoxType's runtime state file. It does not record audio, st
 
 Paste this into OMP:
 
-> Install the global `omp-voxtype-status` plugin from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`; then run `omp plugin install github:pi3123/omp-voxtype-status`. Restart OMP and verify that `🎙 VoxType ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
+> Install the global `omp-voxtype-status` plugin from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`; then run `omp plugin install github:pi3123/omp-voxtype-status`. Restart OMP and verify that `ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
 
 ## Verify and troubleshoot
 
@@ -68,7 +68,7 @@ voxtype status
 
 Perform a short recording cycle. OMP should reflect the state within about 150 ms.
 
-If the indicator says `🎙 VoxType unavailable`:
+If the indicator says `unavailable`:
 
 1. Run `voxtype setup check` and correct any reported issue.
 2. Confirm that `voxtype status` works in the same terminal/account that launches OMP.

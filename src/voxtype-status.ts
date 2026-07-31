@@ -7,17 +7,17 @@ import { join } from "node:path";
 
 const stateFile = join(process.env.XDG_RUNTIME_DIR ?? "/run/user/1000", "voxtype", "state");
 const statusText = {
-  idle: "🎙 VoxType ready",
-  recording: "🎤 Recording",
-  transcribing: "⏳ Transcribing",
+  idle: "ready",
+  recording: "recording",
+  transcribing: "transcribing",
 };
 
 function readState() {
   try {
     const state = readFileSync(stateFile, "utf8").trim();
-    return statusText[state] ?? "🎙 VoxType unavailable";
+    return statusText[state] ?? "unavailable";
   } catch {
-    return "🎙 VoxType unavailable";
+    return "unavailable";
   }
 }
 
