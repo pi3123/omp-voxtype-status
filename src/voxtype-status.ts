@@ -24,6 +24,7 @@ function readState() {
 export default function voxtypeStatus(pi) {
   let timer;
   let lastStatus;
+  let hookStatusCleared = false;
 
   function publish(ctx) {
     if (!ctx.hasUI) {
@@ -31,12 +32,17 @@ export default function voxtypeStatus(pi) {
     }
 
     const nextStatus = readState();
+    if (!hookStatusCleared) {
+      ctx.ui.setStatus("00-voxtype", undefined);
+      hookStatusCleared = true;
+    }
+
     if (nextStatus === lastStatus) {
       return;
     }
 
     lastStatus = nextStatus;
-    ctx.ui.setStatus("00-voxtype", nextStatus);
+    ctx.ui.setWidget("voxtype-status", [nextStatus], { placement: "aboveEditor" });
   }
 
   pi.on("session_start", (_event, ctx) => {
@@ -49,6 +55,6 @@ export default function voxtypeStatus(pi) {
       ctx.clearTimer(timer);
       timer = undefined;
     }
-    ctx.ui.setStatus("00-voxtype", undefined);
+    ctx.ui.setWidget("voxtype-status", undefined);
   });
 }

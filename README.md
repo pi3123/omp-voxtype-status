@@ -8,7 +8,7 @@ A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows
 ⏳ Transcribing
 ```
 
-The indicator is rendered as OMP hook status directly above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
+The indicator is rendered as an OMP above-editor widget immediately above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
 
 ## Requirements
 
@@ -114,4 +114,4 @@ Restart OMP after uninstalling.
 
 ## Status-bar placement
 
-OMP's plugin API currently renders external hook status as a line directly above its native colored status bar. The plugin intentionally uses that supported, update-safe integration point rather than a custom OMP build.
+OMP's plugin API does not allow external segments inside its native colored status bar. This plugin uses OMP's above-editor widget placement, which keeps the indicator adjacent to that bar without adding an extra blank row.
