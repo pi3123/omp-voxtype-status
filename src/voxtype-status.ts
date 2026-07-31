@@ -7,9 +7,9 @@ import { join } from "node:path";
 
 const stateFile = join(process.env.XDG_RUNTIME_DIR ?? "/run/user/1000", "voxtype", "state");
 const statusText = {
-  idle: "🎙 ready",
-  recording: "🎤 recording",
-  transcribing: "⏳ transcribing",
+  idle: "🎙 Ready",
+  recording: "🎤 Recording",
+  transcribing: "⏳ Transcribing",
 };
 
 function readState() {

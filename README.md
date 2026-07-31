@@ -3,9 +3,9 @@
 A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows [VoxType](https://voxtype.io)'s current dictation state in OMP:
 
 ```text
-🎙 ready
-🎤 recording
-⏳ transcribing
+🎙 Ready
+🎤 Recording
+⏳ Transcribing
 ```
 
 The indicator is rendered as OMP hook status directly above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
@@ -48,7 +48,7 @@ curl -fsSL https://raw.githubusercontent.com/pi3123/omp-voxtype-status/main/src/
 
 Restart OMP after installation. In Herder, close and reopen the OMP process (or resume its session); in a regular terminal, exit OMP and run `omp` again.
 
-On the next OMP launch, the indicator should show `🎙 ready` above the OMP status bar.
+On the next OMP launch, the indicator should show `🎙 Ready` above the OMP status bar.
 
 ## Use
 
@@ -60,7 +60,7 @@ Use VoxType normally. For example, while an OMP session is open:
 4. Watch the OMP indicator transition:
 
    ```text
-   🎤 recording → ⏳ transcribing → 🎙 ready
+   🎤 Recording → ⏳ Transcribing → 🎙 Ready
    ```
 
 The plugin only reads VoxType's runtime state file. It does not record audio, start or stop VoxType, access transcription text, or change your hotkey configuration.
@@ -69,7 +69,7 @@ The plugin only reads VoxType's runtime state file. It does not record audio, st
 
 Paste this into OMP:
 
-> Install the global `omp-voxtype-status` integration from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`. If Bun is installed, run `omp plugin install github:pi3123/omp-voxtype-status`; otherwise, download `src/voxtype-status.ts` from the repository into `~/.omp/agent/extensions/voxtype-status.ts`. Restart OMP and verify that `🎙 ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
+> Install the global `omp-voxtype-status` integration from `github:pi3123/omp-voxtype-status`. First run `voxtype setup check`. If Bun is installed, run `omp plugin install github:pi3123/omp-voxtype-status`; otherwise, download `src/voxtype-status.ts` from the repository into `~/.omp/agent/extensions/voxtype-status.ts`. Restart OMP and verify that `🎙 Ready` appears above the OMP status bar. Do not modify VoxType's recording or hotkey settings.
 
 ## Verify and troubleshoot
 
