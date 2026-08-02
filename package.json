@@ -1,6 +1,6 @@
 {
   "name": "omp-voxtype-status",
-  "version": "0.3.0",
+  "version": "0.2.0",
   "description": "Global VoxType recording status for Oh My Pi",
   "type": "module",
   "license": "MIT",

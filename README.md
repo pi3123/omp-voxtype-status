@@ -11,21 +11,6 @@ A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows
 
 The indicator is rendered as an OMP above-editor widget immediately above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
 
-## Look & feel
-
-Idle and transcribing stay calm; while you dictate, the mic "talks" — the sound wave below it animates like a mouth, and a live timer counts up next to it:
-
-```text
-🎙 Ready                       ⏳ Transcribing
-
-   ╭────╮
-   │ 🎤 │        ← dictating
-   ╰─┬──╯
-    ▂▄▆█▇█▆▄  0:07
-```
-
-The wave opens and closes (~6 frames, about 1 s per cycle) and the timer ticks every second until you release.
-
 ## Requirements
 
 - Linux with OMP 17.2.1 or newer.
@@ -80,10 +65,10 @@ Use VoxType normally. For example, while an OMP session is open:
    ```
 
 With streaming dictation (Parakeet unified model), text types as you speak
-and the indicator shows the talking mic while the hotkey is held:
+and the indicator shows `🎤 Streaming` while the hotkey is held:
 
 ```text
-talking mic + timer → 🎙 Ready
+🎤 Streaming → 🎙 Ready
 ```
 
 Note: voxtype's streaming mode force-promotes the built-in hotkey to toggle
