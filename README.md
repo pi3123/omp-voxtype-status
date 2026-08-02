@@ -11,6 +11,39 @@ A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows
 
 The indicator is rendered as an OMP above-editor widget immediately above OMP's colored status bar. It updates every 150 ms and is available in every interactive OMP session for the user who installs it.
 
+## Slash commands
+
+The extension also registers a `/voxtype` command:
+
+```text
+/voxtype                          status summary
+/voxtype get <key>                single config value (e.g. parakeet.streaming)
+/voxtype set <key> <value>        change a setting and restart the daemon
+/voxtype reload                   restart the daemon (pick up external edits)
+/voxtype start | stop             start or stop the daemon
+```
+
+`engine` is set through the official `voxtype config set engine` CLI. Every
+other key (e.g. `hotkey.enabled`, `parakeet.streaming`,
+`parakeet.streaming_chunk_secs`) is applied as a surgical line edit of
+`config.toml` — one existing `key = value` line inside its section, with
+comments and every other byte preserved. Unknown keys are refused, never
+appended.
+
+## Agent tool
+
+The extension registers `voxtype_config`, a tool any OMP agent can call to
+read or change dictation settings on the fly:
+
+- `get` — resolved config, or one key's value
+- `set <key> <value>` — change a value and restart the daemon (write-tier: an
+  agent call asks for approval before mutating)
+- `reload` — restart the daemon
+
+Example: "turn off voxtype streaming" — the agent runs
+`voxtype_config set parakeet.streaming false` and the daemon restarts with the
+new value.
+
 ## Requirements
 
 - Linux with OMP 17.2.1 or newer.
@@ -75,7 +108,9 @@ Note: voxtype's streaming mode force-promotes the built-in hotkey to toggle
 (tap to start/stop). On X11, [voxtype-hold2talk](https://github.com/pi3123/voxtype-hold2talk)
 restores true hold-to-talk alongside streaming.
 
-The plugin only reads VoxType's runtime state file. It does not record audio, start or stop VoxType, access transcription text, or change your hotkey configuration.
+The widget only reads VoxType's runtime state file. The `/voxtype` command and the
+`voxtype_config` tool change settings only when you (or an approved agent call)
+ask them to; they never record audio or access transcription text.
 
 ## Ask an OMP agent to install it
 
