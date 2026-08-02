@@ -168,7 +168,7 @@ export default function voxtypeStatus(pi) {
       ctx.ui.setStatus("00-voxtype", undefined);
       hookStatusCleared = true;
     }
-    const nextStatus = readState();
+    const nextStatus = statusText[readState()] ?? "unavailable";
     if (nextStatus === lastStatus) {
       return;
     }
