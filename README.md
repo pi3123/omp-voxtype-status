@@ -5,6 +5,7 @@ A global [Oh My Pi (OMP)](https://github.com/can1357/oh-my-pi) plugin that shows
 ```text
 🎙 Ready
 🎤 Recording
+🎤 Streaming
 ⏳ Transcribing
 ```
 
@@ -24,7 +25,7 @@ voxtype setup check
 voxtype status
 ```
 
-`voxtype status` should print `idle`, `recording`, or `transcribing`.
+`voxtype status` should print `idle`, `recording`, `streaming`, or `transcribing`.
 
 ## Install
 
@@ -62,6 +63,17 @@ Use VoxType normally. For example, while an OMP session is open:
    ```text
    🎤 Recording → ⏳ Transcribing → 🎙 Ready
    ```
+
+With streaming dictation (Parakeet unified model), text types as you speak
+and the indicator shows `🎤 Streaming` while the hotkey is held:
+
+```text
+🎤 Streaming → 🎙 Ready
+```
+
+Note: voxtype's streaming mode force-promotes the built-in hotkey to toggle
+(tap to start/stop). On X11, [voxtype-hold2talk](https://github.com/pi3123/voxtype-hold2talk)
+restores true hold-to-talk alongside streaming.
 
 The plugin only reads VoxType's runtime state file. It does not record audio, start or stop VoxType, access transcription text, or change your hotkey configuration.
 

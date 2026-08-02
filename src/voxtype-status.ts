@@ -9,6 +9,7 @@ const stateFile = join(process.env.XDG_RUNTIME_DIR ?? "/run/user/1000", "voxtype
 const statusText = {
   idle: "🎙 Ready",
   recording: "🎤 Recording",
+  streaming: "🎤 Streaming",
   transcribing: "⏳ Transcribing",
 };
 
